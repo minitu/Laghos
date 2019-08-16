@@ -14,10 +14,10 @@
 # software, applications, hardware, advanced system engineering and early
 # testbed platforms, in support of the nation's exascale computing imperative.
 
-NV_ARCH ?= -arch=sm_61
-CUDA_DIR ?= /usr/local/cuda
+NV_ARCH ?= -arch=sm_70
+CUDA_DIR ?= $(CUDA_HOME)
 
-MPI_HOME ?= /usr/local/mpi
+MPI_HOME ?= $(MPI_ROOT)
 MPI_INCFLAGS = -I$(MPI_HOME)/include
 
 NVCC_CXXFLAGS = -x=cu -std=c++11 -m64 --restrict -Xcompiler -Wall $(NV_ARCH)
@@ -61,7 +61,7 @@ PREFIX = ./bin
 INSTALL = /usr/bin/install
 
 # Use the MFEM build directory
-MFEM_DIR = ../../mfem
+MFEM_DIR = ../../mfem-cuda
 CONFIG_MK = $(MFEM_DIR)/config/config.mk
 TEST_MK = $(MFEM_DIR)/config/test.mk
 # Use the MFEM install directory
